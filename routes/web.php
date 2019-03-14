@@ -18,6 +18,8 @@ Route::get('/', function () {
 
 Route::get('/kategori','CategoryController@index')->name('kategori');
 
+Route::get('category', 'CategoryController@index');
+
 Route::get('layouts', function(){
     return view('layouts.master');
 });
