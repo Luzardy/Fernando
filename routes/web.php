@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('/kategori','CategoryController@index')->name('kategori');
+Route::get('kategori','CategoryController@index')->name('kategori');
 
 Route::get('category', 'CategoryController@index');
 
@@ -31,3 +31,11 @@ Route::get('index', function(){
 Route::get('dashboard', function(){
     return view('dashboard');
 });
+
+Route::get('/edit/edit/{category_id}','CategoryController@edit');
+
+Route::post('/datakategori/update','CategoryController@update');
+
+Route::get('/hapus/destroy/{category_id}','CategoryController@destroy');
+
+Route::get('query', 'CategoryController@search');

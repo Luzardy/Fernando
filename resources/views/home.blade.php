@@ -61,19 +61,48 @@
         <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="/category"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Dashboard</li>
       </ol>
+
+      <div class="box-tools">
+        <div class="input-group input-group-sm" style="width: 150px;">
+          <form action="{{ url('query') }}" method="GET">
+            <div class="box-body">
+              <div class="row">
+                <div class="col-xs-5">
+                  <div class="input-group">
+                    <div class="input-group-btn">
+                      <button type="submit" class="btn btn-danger">Cari</button>
+                    </div>
+                    <!-- /btn-group -->
+                      <input type="text" class="form-control" name="cari" placeholder="Search Data Kategori..">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="input-group-btn">
+            <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+          </div>
+        </div>
+      </div><br><br>
     </section>
 
     <div class="box-body table-responsive no-padding">
-        <table border="3px Solid blue">
+        <table style="margin-left:5%; padding:15px; cellpadding:15px;" border="3px Solid blue">
             <tr>
                 <td>Nama kategori</td>
+                <td> Opsi </td>
             </tr>        
             @foreach($categories as $li)
             <tr>
                 <td>{{$li->category_name}}</td>
+                <td>
+				            <a href="/edit/edit/{{ $li->category_id }}">Edit</a>
+				|
+				            <a href="/hapus/destroy/{{ $li->category_id }}">Hapus</a>
+			          </td>
             </tr>
             @endforeach
         </table>
